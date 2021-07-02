@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-Data Property</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    span {
+      margin: 200px auto;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <span id="app">当前计数：{{count}}</span>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return { count: 4 }
+      }
+    })
+    const vm = app.mount('#app')
+    console.log(vm.$data.count); // =>4
+    console.log(vm.count); // =>4
+    // 修改vm.count的值也会更新$data.count
+    vm.count = 520
+    console.log(vm.$data.count);
+    // 反之亦然
+    vm.$data.count = 1314
+    console.log(vm.count);
+    // 但这些实例property仅在实例首次创建时被添加，确保它们都在data函数返回的对象中。
+  </script>
+</body>
+
+</html>
