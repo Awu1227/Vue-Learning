@@ -1,6 +1,6 @@
 ##3.3 Mutation
 
-> 在 Vuex 中不允许组件之间去修改 Store 里面的数据
+> 在 Vuex 中不允许组件直接去修改 Store 里面的数据
 
 Mutation 用于变更 Store 中的数据
 
@@ -90,4 +90,4 @@ export default {
 </script>
 ```
 
-第二种方法可以通过`this.`直接调用映射过来方法。
+第二种方法可以通过`this.`直接调用映射过来的方法。
