@@ -17,7 +17,7 @@
 
 Vuex 是实现组件全局状态（数据）管理的一种机制，可以方便的实现组件间数据的共享。
 
-![image-20210704142814296](Vuex概述.assets/image-20210704142814296.png)
+![image](https://user-images.githubusercontent.com/72426886/124375973-51991b80-dcd7-11eb-863c-e856dee1aee8.png)
 
 > 在项目中大范围和频繁的实现数据共享，推荐使用 Vuex。
 
