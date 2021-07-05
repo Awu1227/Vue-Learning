@@ -84,3 +84,13 @@ const router = new VueRouter({
   ],
 })
 ```
+
+### 6. 把路由挂载到 Vue 根实例中
+
+```
+new Vue({
+  render: (h) => h(App),
+  store,
+  router,
+}).$mount("#app")
+```
