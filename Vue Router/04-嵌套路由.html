@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-嵌套路由</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id='app'>
+    {{message}}
+    <p>
+      <router-link to='/user'>User</router-link>
+      <router-link to='/register'>Register</router-link>
+    </p>
+    <!--路由填充位-->
+    <router-view></router-view>
+  </div>
+  <script>
+    const User = {
+      template: `<div> <h1>User组件 </h1>
+      </div>`
+    }
+    const Register = {
+      template: `<div><h1>Register组件</h1>
+        <p>
+      <router-link to='/register/tab1'>Tab1</router-link>
+      <router-link to='/register/tab2'>Tab2</router-link>
+      </p>
+      <router-view></router-view>
+        </div>`
+
+    }
+    const Tab1 = {
+      template: `<div><h2>Tab1组件</h2></div>`
+    }
+    const Tab2 = {
+      template: `<div><h2>Tab2组件</h2></div>`
+    }
+    const routes = [
+      // 每条路由规则都是一个配置对象，其中至少包含path和component两个属性
+      // path表示当前路由规则匹配的hash地址
+      // component表示当前路由规则对应要展示的组件
+      { path: '/user', component: User },
+      {
+        path: '/register',
+        component: Register,
+        children: [
+          { path: '/register/tab1', component: Tab1 },
+          { path: '/register/tab2', component: Tab2 },
+        ]
+      }
+    ]
+    // 创建路由实例对象
+    const router = new VueRouter({
+      routes
+    })
+    const app = new Vue({
+      el: '#app',
+      router,
+      data: {
+        message: '你好 Vue.js'
+      }
+    })
+  </script>
+</body>
+
+</html>
