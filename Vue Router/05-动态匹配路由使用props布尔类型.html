@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-动态匹配路由使用props布尔类型</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id='app'>
+    {{message}}
+    <p>
+      <router-link to='/user/1'>User1</router-link>
+      <router-link to='/user/2'>User2</router-link>
+      <router-link to='/user/3'>User3</router-link>
+      <router-link to='/register'>Register</router-link>
+    </p>
+    <!--路由填充位-->
+    <router-view></router-view>
+  </div>
+  <script>
+    const User = {
+      props: ['id'],
+      template: '<div> User组件--组件id为{{id}} </div>'
+    }
+    const Register = {
+      template: '<div>Register组件</div>'
+    }
+    const routes = [
+      { path: '/user/:id', component: User, props: true },
+      { path: '/register', component: Register }
+    ]
+    // 创建路由实例对象
+    const router = new VueRouter({
+      routes
+    })
+    const app = new Vue({
+      el: '#app',
+      router,
+      data: {
+        message: '你好 Vue.js'
+      }
+    })
+  </script>
+</body>
+
+</html>
