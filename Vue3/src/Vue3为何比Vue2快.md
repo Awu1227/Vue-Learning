@@ -5,6 +5,7 @@
  - 编译模板时，动态节点做标记
  - 标记，分为不同的类型，如TEXT PROPS
  - diff算法时，可以区分静态节点以及不同类型的动态节点
+![PatchFlag](https://user-images.githubusercontent.com/72426886/133395976-daaf2ac7-319a-4caf-9f9e-dda2e2aa002d.jpg)
 
 # hoistStatic
 
