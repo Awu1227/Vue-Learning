@@ -1,18 +1,20 @@
 <template>
 <p>{{name}}{{age}}</p>
-<v-model
+<!-- <v-model
 v-model:name='name'
 v-model:age='age'
-></v-model>
+></v-model> -->
+<watch/>
 </template>
 
 <script>
 import { reactive, toRefs } from "@vue/reactivity"
-import VModel from './components/V-model.vue'
+// import VModel from './components/V-model.vue'
+import Watch from './components/Watch.vue'
 
 export default {
   name: 'Index',
-  components: { VModel },
+  components: { Watch },
   setup () {
     const state = reactive({
       name: '橙子',
