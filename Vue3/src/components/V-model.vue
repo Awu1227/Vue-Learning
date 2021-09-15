@@ -1,3 +1,4 @@
+// v-model参数代替了.sync修饰符的作用
 <template>
 <input :value="name" @input="$emit('update:name',$event.target.value)">
 <input :value="age" @input="$emit('update:age',$event.target.value)">
